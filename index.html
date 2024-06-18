@@ -208,10 +208,13 @@
         }
 
         function onAir() {
-          debug(`On air : ${player.v.videoData.title} by ${
-            player.v.videoData.author
+                    console.log(player.playerInfo.videoData)
+
+          debug(`On air : ${player.playerInfo.videoData.title} by ${
+            player.playerInfo.videoData.author
           }
-          Video Id        => ${player.v.videoData.video_id}
+
+          Video Id        => ${player.playerInfo.videoData.video_id}
           Queue position  => ${player.getPlaylistIndex() + 1}/${
             player.getPlaylist() ? player.getPlaylist().length : "null"
           }
@@ -230,7 +233,7 @@
           HideWhenStopped => ${hideWhenStopped}
           Controls        => ${controls}`);
 
-          if (title) document.getElementById('info').innerHTML = `<span id="songTitle">${player.v.videoData.title}</span> <span id="songAuthor">${player.v.videoData.author}</span>`;
+          if (title) document.getElementById('info').innerHTML = `<span id="songTitle">${player.playerInfo.videoData.title}</span> <span id="songAuthor">${player.playerInfo.videoData.author}</span>`;
 
           player.playVideo();
 
